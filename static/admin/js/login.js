@@ -1,23 +1,23 @@
-$(function () {
-    app.init();
+$(function(){
+    loginApp.init();
 })
-var app={
-    init: function () {
+var loginApp={
+    init:function(){
         this.getCaptcha()
-        this.captchaImgChange()
+        this.captchaImgChage()
     },
-    getCaptcha: function () {
-        $.get("/admin/captcha+t"+Math.random(),function (response) {
+    getCaptcha:function(){
+        $.get("/admin/captcha?t="+Math.random(),function(response){
             console.log(response)
-            $("#captchaId").val(response.CaptchaId);
-            $("#captchaImg").attr("src",response.CaptchaImages);
+            $("#captchaId").val(response.captchaId)
+
+            $("#captchaImg").attr("src",response.captchaImage)
         })
     },
-    captchaImgChange:function(){
+    captchaImgChage:function(){
         var that=this;
-        $("#captchaImg").click(function () {
+        $("#captchaImg").click(function(){
             that.getCaptcha()
         })
-
     }
 }

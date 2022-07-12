@@ -1,6 +1,11 @@
 package models
 
 import (
+	"crypto/md5"
+	"crypto/sha256"
+	"fmt"
+	"io"
+	"strconv"
 	"time"
 )
 
@@ -35,4 +40,24 @@ func GetDate() string {
 func GetDay() string {
 	template := "20060102"
 	return time.Now().Format(template)
+}
+func Md5(str string) string {
+	h := md5.New()
+	io.WriteString(h, str)
+	return fmt.Sprintf("%x", h.Sum(nil))
+
+}
+func Sha256(str string) string {
+	h := sha256.New()
+	io.WriteString(h, str)
+	return fmt.Sprintf("%x", h.Sum(nil))
+}
+func ToInt(str string) (n int, err error) {
+	n, err = strconv.Atoi(str)
+	return
+}
+func ToString(n int) string {
+
+	str := strconv.Itoa(n)
+	return str
 }
