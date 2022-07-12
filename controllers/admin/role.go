@@ -55,13 +55,13 @@ func (con RoleController) Edit(c *gin.Context) {
 	if err != nil {
 		con.Error(c, "传入数据出错", "admin/role")
 		return
+	} else {
+		role := models.Role{Id: id}
+		models.DB.Find(&role)
+		c.HTML(http.StatusOK, "admin/role/edit.html", gin.H{
+			"role": role,
+		})
 	}
-	role := models.Role{Id: id}
-	models.DB.Find(&role)
-	c.HTML(http.StatusOK, "admin/role/edit.html", gin.H{
-		"role": role,
-	})
-
 	//c.HTML(http.StatusOK, "admin/role/edit.html", gin.H{})
 }
 func (con RoleController) DoEdit(c *gin.Context) {
@@ -99,7 +99,7 @@ func (con RoleController) DoEdit(c *gin.Context) {
 
 func (con RoleController) Delete(c *gin.Context) {
 	id := c.Query("id") //区分query表单和form表单
-	fmt.Println(id)
+	//fmt.Println(id)
 	n, err := models.ToInt(id)
 	if err != nil {
 		con.Error(c, "传入数据失败", "/admin/role")
@@ -111,4 +111,20 @@ func (con RoleController) Delete(c *gin.Context) {
 
 		con.Success(c, "删除成功", "/admin/role")
 	}
+}
+
+func (con RoleController) Auth(c *gin.Context) {
+	id, err := models.ToInt(c.Query("id"))
+	if err != nil {
+		con.Error(c, "传入数据错误", "/admin/role")
+		return
+	}
+	c.HTML(http.StatusOK, "admin/role/auth.html", gin.H{
+		"id": id,
+	})
+	//c.String(http.StatusOK, "Auth", gin.H{})
+}
+func (con RoleController) DoAuth(c *gin.Context) {
+	//id, err := models.ToInt(c.Query("id"))
+	c.String(http.StatusOK, "DoAuth")
 }

@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-//时间戳转换成日期
+//时间戳转换成日期,这个方法会mapFunc中使用,可以让前端代码调用
 func UnixToTime(timestamp int) string {
 	t := time.Unix(int64(timestamp), 0)
 	return t.Format("2006-01-02 15:04:05")

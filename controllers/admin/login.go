@@ -49,6 +49,9 @@ func (con LoginController) DoLogin(c *gin.Context) {
 			session := sessions.Default(c)
 			//把结构体转换成json字符串
 			userinfoslice, _ := json.Marshal(userinfo)
+			session.Options(sessions.Options{ //选项者模式,遍历选项
+				MaxAge: 3600,
+			})
 
 			session.Set("userinfo", string(userinfoslice)) //设置一个session,是key-value类型,但是set只能保存字符串
 			session.Save()
@@ -71,7 +74,7 @@ func (con LoginController) Captcha(c *gin.Context) {
 	if err != nil {
 		fmt.Println(err)
 	}
-	c.JSON(http.StatusOK, gin.H{ //以json格式返回验证码
+	c.JSON(http.StatusOK, gin.H{ //以json格式返回验证码,注意要和前端的字段保持一致!!!,因为前端就是根据关键字去获取
 		"captchaId":    id,
 		"captchaImage": b64s,
 	})
