@@ -43,6 +43,7 @@ func AdminRoutersInit(r *gin.Engine) {
 		adminRouters.GET("/role/delete", admin.RoleController{}.Delete)
 		adminRouters.GET("/role/auth", admin.RoleController{}.Auth)
 		adminRouters.POST("/role/doAuth", admin.RoleController{}.DoAuth)
+		//this is a test
 
 		adminRouters.GET("/access", admin.AccessController{}.Index)
 		adminRouters.GET("/access/add", admin.AccessController{}.Add)

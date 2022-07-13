@@ -13,7 +13,7 @@ type Access struct {
 	AddTime     int
 	AccessItem  []Access `gorm:"foreignKey:ModuleId;references:Id"` //自己和自己关联,
 
-	// Checked     bool     `gorm:"-"` // 忽略本字段
+	Checked bool `gorm:"-"` // 忽略本字段,本字段仅仅在前端显示有用到
 }
 
 func (Access) TableName() string {

@@ -114,17 +114,67 @@ func (con RoleController) Delete(c *gin.Context) {
 }
 
 func (con RoleController) Auth(c *gin.Context) {
+	//获取角色id
 	id, err := models.ToInt(c.Query("id"))
 	if err != nil {
 		con.Error(c, "传入数据错误", "/admin/role")
 		return
 	}
+	//获取所有的权限，
+	accessList := []models.Access{}
+	//关联外表
+	models.DB.Where("module_id=?", 0).Preload("AccessItem").Find(&accessList) //获取顶级模块
+
+	//查询当前角色对应的权限,并且存为一个id,判断当前id是否在map中,如果在的话就加一个checked属性
+	roleAccess := []models.RoleAccess{}
+	models.DB.Where("role_id=?", id).Find(&roleAccess) //获取当前id对应的AccessId
+
+	roleAccessMap := make(map[int]int) //创建map方式1
+	//roleAccessMap := map[int]int{} //创建map方式2
+	for _, v := range roleAccess { //把查询到的RoleAccess放入一map中
+		roleAccessMap[v.AccessId] = v.AccessId //添加check属性
+	}
+
+	for i := 0; i < len(accessList); i++ {
+		if _, ok := roleAccessMap[accessList[i].Id]; ok {
+			accessList[i].Checked = true
+		}
+		for j := 0; j < len(accessList[i].AccessItem); j++ {
+			if _, ok := roleAccessMap[accessList[i].AccessItem[j].Id]; ok {
+				accessList[i].AccessItem[j].Checked = true
+			}
+		}
+	}
+
 	c.HTML(http.StatusOK, "admin/role/auth.html", gin.H{
-		"id": id,
+		"roleId":     id,
+		"accessList": accessList,
 	})
 	//c.String(http.StatusOK, "Auth", gin.H{})
 }
 func (con RoleController) DoAuth(c *gin.Context) {
+	//获取角色id和权限id
+	roleId, err := models.ToInt(c.PostForm("role_id"))
+	if err != nil {
+		con.Error(c, "传入数据错误", "/admin/role")
+		return
+	}
+	//获取权限id,是个切片
+	accessIds := c.PostFormArray("access_node[]")
+
+	//删除当前角色对应的所有权限
+	roleAccess := models.RoleAccess{}
+	models.DB.Where("role_id=?", roleId).Delete(&roleAccess) //删除数据
+
+	//增加所有选中的权限
+
+	for _, v := range accessIds {
+		//增加数据
+		roleAccess.RoleId = roleId //form表单中的值赋值给结构体,因为id是唯一的,不是从遍历中获得
+		roleAccess.AccessId, _ = models.ToInt(v)
+		models.DB.Create(&roleAccess)
+
+	}
 	//id, err := models.ToInt(c.Query("id"))
 	c.String(http.StatusOK, "DoAuth")
 }

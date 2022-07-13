@@ -4,65 +4,40 @@
 
 
 <div class="panel panel-default">
+  <form action="/admin/role/doAuth" method="post">
+    <input type="hidden" name="role_id" value="{{ .roleId }}">
+
     <div class="panel-heading">
         角色授权
     </div>
     <div class="panel-body">
         <div class="table-responsive input-form">
             <table class="table table-bordered">
+<!--                这里遍历的是父模块-->
+                {{range $key, $value := .accessList}}
                 <tr>
-                    <td align="right" style="background: #D8E2FA; padding-right: 10px; width: 150px;">
+                    <td align="left" style="background: #D8E2FA; padding-right: 10px; width: 150px;">
                         <label>
-                            <input type="checkbox" class="module_cbo" value="1" name="access_node[]">&nbsp;&nbsp;
-                            菜单管理
+                            <input type="checkbox" {{if eq $value.Checked true}}checked{{end}} class="module_cbo" value="{{$value.Id}}" name="access_node[]">&nbsp;&nbsp;
+                            {{$value.ModuleName}}
                         </label>
                     </td>
                     <td>
+<!--                        这里遍历的是子模块-->
+                        {{range $k, $v :=$value.AccessItem}}
                         &nbsp;&nbsp;
                         <label>
-                            <input type="checkbox" class="action_cbo" value="2" name="access_node[]">
-                            &nbsp;&nbsp;菜单列表                   			</label>&nbsp;&nbsp;
-                        <label>
-                            <input type="checkbox" class="action_cbo" value="3" name="access_node[]">
-                            &nbsp;&nbsp;添加菜单                   			</label>&nbsp;&nbsp;
-                        <label>
-                            <input type="checkbox" class="action_cbo" value="4" name="access_node[]">
-                            &nbsp;&nbsp;编辑菜单                   			</label>&nbsp;&nbsp;
-                        <label>
-                            <input type="checkbox" class="action_cbo" value="5" name="access_node[]">
-                            &nbsp;&nbsp;删除菜单                   			</label>                        &nbsp;
+                            <input type="checkbox" {{if eq $v.Checked true}}checked{{end}} class="action_cbo" value="{{$v.Id}}" name="access_node[]">
+                            &nbsp;&nbsp;{{$v.ActionName}}</label>&nbsp;&nbsp;
+                        {{end}}
                     </td>
                 </tr>
-
-                <tr>
-                    <td align="right" style="background: #D8E2FA; padding-right: 10px; width: 150px;">
-                        <label>
-                            <input type="checkbox" class="module_cbo" value="1" name="access_node[]">&nbsp;&nbsp;
-                            菜单管理
-                        </label>
-                    </td>
-                    <td>
-                        &nbsp;&nbsp;
-                        <label>
-                            <input type="checkbox" class="action_cbo" value="2" name="access_node[]">
-                            &nbsp;&nbsp;菜单列表                   			</label>&nbsp;&nbsp;
-                        <label>
-                            <input type="checkbox" class="action_cbo" value="3" name="access_node[]">
-                            &nbsp;&nbsp;添加菜单                   			</label>&nbsp;&nbsp;
-                        <label>
-                            <input type="checkbox" class="action_cbo" value="4" name="access_node[]">
-                            &nbsp;&nbsp;编辑菜单                   			</label>&nbsp;&nbsp;
-                        <label>
-                            <input type="checkbox" class="action_cbo" value="5" name="access_node[]">
-                            &nbsp;&nbsp;删除菜单                   			</label>                        &nbsp;
-                    </td>
-                </tr>
-
-
+                {{end}}
             </table>
+            <button type="submit" class="btn btn-primary">提交</button>
         </div>
     </div>
-
+  </form>
 
 </div>
 
