@@ -134,7 +134,7 @@ func (con RoleController) Auth(c *gin.Context) {
 	for _, v := range roleAccess { //把查询到的RoleAccess放入一map中
 		roleAccessMap[v.AccessId] = v.AccessId //添加check属性
 	}
-
+	//判判断用户的权限是否在当前用户的列表里面,如果有权限的话,给check设置为true
 	for i := 0; i < len(accessList); i++ {
 		if _, ok := roleAccessMap[accessList[i].Id]; ok {
 			accessList[i].Checked = true
@@ -176,5 +176,5 @@ func (con RoleController) DoAuth(c *gin.Context) {
 
 	}
 	//id, err := models.ToInt(c.Query("id"))
-	c.String(http.StatusOK, "DoAuth")
+	con.Success(c, "添加权限成功", "/admin/role")
 }
