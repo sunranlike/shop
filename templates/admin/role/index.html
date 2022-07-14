@@ -1,7 +1,7 @@
+
 {{ define "admin/role/index.html" }}
 {{ template "admin/public/page_header.html" .}}
-
-
+               
     <!--
         列表展示
     -->
@@ -12,25 +12,32 @@
                 <th>角色名称</th>
                 <th>角色名称</th>
                 <th>角色状态</th>
-
+             
                 <th class="text-center">操作</th>
             </tr>
             </thead>
             <tbody>
-<!--            gin框架的替换-->
-            {{range $key,$value := .roleList}}
-            <tr>
-                <td>{{$value.Title}}</td>
-                <td>{{$value.Description}}</td>
-                <td>{{$value.Status}}</td>
 
+             {{range $key,$value := .roleList}}   
+            <tr>
+                <td>{{$value.Title}}</td>               
+                <td>{{$value.Description}}</td>
+              
+                <td align="center">
+                    {{if eq $value.Status 1}}
+                        <img class="chStatus" data-id="{{$value.Id}}" data-table="role" data-field="status" src="/static/admin/images/yes.gif" />
+                    {{else}}
+                        <img class="chStatus"  data-id="{{$value.Id}}" data-table="role" data-field="status" src="/static/admin/images/no.gif" />
+                    {{end}}
+                </td>
+                           
                 <td class="text-center">
-                    <a href="/admin/role/auth?id={{$value.Id}}">授权</a>
-                    <a href="/admin/role/edit?id={{$value.Id}}">修改</a>
+                    <a href="/admin/role/auth?id={{$value.Id}}">授权</a> 
+                    <a href="/admin/role/edit?id={{$value.Id}}">修改</a> 
                     <a class="delete" href="/admin/role/delete?id={{$value.Id}}">删除</a>
                 </td>
-            </tr>
-            {{end}}
+            </tr>             
+            {{end}}   
             </tbody>
         </table>
     </div>

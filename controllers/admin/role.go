@@ -50,7 +50,7 @@ func (con RoleController) DoAdd(c *gin.Context) {
 }
 
 func (con RoleController) Edit(c *gin.Context) {
-	id, err := models.ToInt(c.Query("id"))
+	id, err := models.Int(c.Query("id"))
 
 	if err != nil {
 		con.Error(c, "传入数据出错", "admin/role")
@@ -65,7 +65,7 @@ func (con RoleController) Edit(c *gin.Context) {
 	//c.HTML(http.StatusOK, "admin/role/edit.html", gin.H{})
 }
 func (con RoleController) DoEdit(c *gin.Context) {
-	id, err1 := models.ToInt(c.PostForm("id"))
+	id, err1 := models.Int(c.PostForm("id"))
 	//fmt.Println(id)
 	if err1 != nil {
 		con.Error(c, "数据错误", "admin/role")
@@ -87,10 +87,10 @@ func (con RoleController) DoEdit(c *gin.Context) {
 
 	err2 := models.DB.Save(&role).Error //修改数据记得save
 	if err2 != nil {
-		con.Error(c, "gorm失败", "/admin/role/edit?id="+models.ToString(id)) //重新跳转
+		con.Error(c, "gorm失败", "/admin/role/edit?id="+models.String(id)) //重新跳转
 		return
 	} else {
-		con.Success(c, "修改成功", "/admin/role/edit?id="+models.ToString(id))
+		con.Success(c, "修改成功", "/admin/role/edit?id="+models.String(id))
 		//踩过的坑:注意一定要最前面加一个"/",否则就是当前域加上这个url,例如admin/role/admin/role/edit?id=,明显有悖于结论
 	}
 
@@ -100,7 +100,7 @@ func (con RoleController) DoEdit(c *gin.Context) {
 func (con RoleController) Delete(c *gin.Context) {
 	id := c.Query("id") //区分query表单和form表单
 	//fmt.Println(id)
-	n, err := models.ToInt(id)
+	n, err := models.Int(id)
 	if err != nil {
 		con.Error(c, "传入数据失败", "/admin/role")
 		return
@@ -115,7 +115,7 @@ func (con RoleController) Delete(c *gin.Context) {
 
 func (con RoleController) Auth(c *gin.Context) {
 	//获取角色id
-	id, err := models.ToInt(c.Query("id"))
+	id, err := models.Int(c.Query("id"))
 	if err != nil {
 		con.Error(c, "传入数据错误", "/admin/role")
 		return
@@ -154,7 +154,7 @@ func (con RoleController) Auth(c *gin.Context) {
 }
 func (con RoleController) DoAuth(c *gin.Context) {
 	//获取角色id和权限id
-	roleId, err := models.ToInt(c.PostForm("role_id"))
+	roleId, err := models.Int(c.PostForm("role_id"))
 	if err != nil {
 		con.Error(c, "传入数据错误", "/admin/role")
 		return
@@ -171,10 +171,10 @@ func (con RoleController) DoAuth(c *gin.Context) {
 	for _, v := range accessIds {
 		//增加数据
 		roleAccess.RoleId = roleId //form表单中的值赋值给结构体,因为id是唯一的,不是从遍历中获得
-		roleAccess.AccessId, _ = models.ToInt(v)
+		roleAccess.AccessId, _ = models.Int(v)
 		models.DB.Create(&roleAccess)
 
 	}
-	//id, err := models.ToInt(c.Query("id"))
+	//id, err := models.Int(c.Query("id"))
 	con.Success(c, "添加权限成功", "/admin/role")
 }

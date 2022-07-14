@@ -31,7 +31,7 @@ func (con ManagerController) Add(c *gin.Context) {
 	})
 }
 func (con ManagerController) DoAdd(c *gin.Context) {
-	roleId, err := models.ToInt(c.PostForm("role_id"))
+	roleId, err := models.Int(c.PostForm("role_id"))
 	if err != nil {
 		con.Error(c, "转换角色失败", "/admin/manger/add")
 		return
@@ -75,7 +75,7 @@ func (con ManagerController) DoAdd(c *gin.Context) {
 
 func (con ManagerController) Edit(c *gin.Context) {
 	//获取管理员
-	id, err := models.ToInt(c.Query("id"))
+	id, err := models.Int(c.Query("id"))
 	if err != nil {
 		con.Error(c, "传入数据出错", "admin/manager")
 		return
@@ -96,12 +96,12 @@ func (con ManagerController) Edit(c *gin.Context) {
 
 func (con ManagerController) DoEdit(c *gin.Context) {
 	//从form表单中获取数据
-	id, err1 := models.ToInt(c.PostForm("id"))
+	id, err1 := models.Int(c.PostForm("id"))
 	if err1 != nil {
 		con.Error(c, "传入数据错误", "/admin/manager")
 		return
 	}
-	roleId, err2 := models.ToInt(c.PostForm("role_id"))
+	roleId, err2 := models.Int(c.PostForm("role_id"))
 	if err2 != nil {
 		con.Error(c, "传入数据错误", "/admin/manager")
 		return
@@ -128,7 +128,7 @@ func (con ManagerController) DoEdit(c *gin.Context) {
 	if password != "" {
 		//长度判断
 		if len(password) < 6 {
-			con.Error(c, "密码太短了", "/admin/manager/edit?id="+models.ToString(id))
+			con.Error(c, "密码太短了", "/admin/manager/edit?id="+models.String(id))
 			return
 		}
 		manager.Password = models.Md5(password) //合规密码设置
@@ -145,7 +145,7 @@ func (con ManagerController) DoEdit(c *gin.Context) {
 func (con ManagerController) Delete(c *gin.Context) {
 	id := c.Query("id") //区分query表单和form表单
 	//fmt.Println(id)
-	n, err := models.ToInt(id)
+	n, err := models.Int(id)
 	if err != nil {
 		con.Error(c, "传入数据失败", "/admin/manager")
 		return

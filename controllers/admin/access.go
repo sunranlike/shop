@@ -31,12 +31,12 @@ func (con AccessController) Add(c *gin.Context) {
 func (con AccessController) DoAdd(c *gin.Context) {
 
 	moduleName := strings.Trim(c.PostForm("module_name"), "")
-	accessType, err1 := models.ToInt(c.PostForm("type"))
+	accessType, err1 := models.Int(c.PostForm("type"))
 	actionName := c.PostForm("action_name")
 	url := c.PostForm("url")
-	moduleId, err2 := models.ToInt(c.PostForm("module_id"))
-	sort, err3 := models.ToInt(c.PostForm("sort"))
-	status, err4 := models.ToInt(c.PostForm("status"))
+	moduleId, err2 := models.Int(c.PostForm("module_id"))
+	sort, err3 := models.Int(c.PostForm("sort"))
+	status, err4 := models.Int(c.PostForm("status"))
 	description := c.PostForm("description")
 	if err1 != nil || err2 != nil || err3 != nil || err4 != nil {
 		con.Error(c, "传入数据出错", "/admin/access/add")
@@ -70,7 +70,7 @@ func (con AccessController) DoAdd(c *gin.Context) {
 }
 func (con AccessController) Edit(c *gin.Context) {
 	//获取要修改的数据
-	id, err := models.ToInt(c.Query("id"))
+	id, err := models.Int(c.Query("id"))
 	if err != nil {
 		con.Error(c, "参数错误", "/admin/access")
 		return
@@ -88,26 +88,26 @@ func (con AccessController) Edit(c *gin.Context) {
 	})
 }
 func (con AccessController) DoEdit(c *gin.Context) {
-	id, err5 := models.ToInt(c.PostForm("id"))
+	id, err5 := models.Int(c.PostForm("id"))
 	if err5 != nil {
 		con.Error(c, "传入key出错", "/admin/access")
 		return
 	}
 	module_name := strings.Trim(c.PostForm("module_name"), "")
-	accessType, err1 := models.ToInt(c.PostForm("type"))
+	accessType, err1 := models.Int(c.PostForm("type"))
 	if err1 != nil {
 		con.Error(c, "传入type出错1", "/admin/access")
 		return
 	}
 	actionName := c.PostForm("action_name")
 	url := c.PostForm("url")
-	moduleId, err2 := models.ToInt(c.PostForm("module_id"))
+	moduleId, err2 := models.Int(c.PostForm("module_id"))
 	if err2 != nil {
 		con.Error(c, "传入module_id出错", "/admin/access")
 		return
 	}
-	sort, err3 := models.ToInt(c.PostForm("sort"))
-	status, err4 := models.ToInt(c.PostForm("status"))
+	sort, err3 := models.Int(c.PostForm("sort"))
+	status, err4 := models.Int(c.PostForm("status"))
 	description := c.PostForm("description")
 
 	if err3 != nil || err4 != nil {
@@ -115,7 +115,7 @@ func (con AccessController) DoEdit(c *gin.Context) {
 		return
 	}
 	if module_name == "" {
-		con.Error(c, "模块名称不能为空", "/admin/access/edit?id="+models.ToString(id))
+		con.Error(c, "模块名称不能为空", "/admin/access/edit?id="+models.String(id))
 		return
 	}
 	access := models.Access{Id: id}
@@ -131,16 +131,16 @@ func (con AccessController) DoEdit(c *gin.Context) {
 
 	err := models.DB.Save(&access).Error
 	if err != nil {
-		con.Error(c, "修改数据失败", "/admin/access/edit?id="+models.ToString(id))
+		con.Error(c, "修改数据失败", "/admin/access/edit?id="+models.String(id))
 		return
 	}
 
-	con.Success(c, "修改数据成功", "/admin/access/edit?id="+models.ToString(id))
+	con.Success(c, "修改数据成功", "/admin/access/edit?id="+models.String(id))
 	//c.String(http.StatusOK, "doEdit")
 }
 
 func (con AccessController) Delete(c *gin.Context) {
-	id, err := models.ToInt(c.Query("id")) //区分query表单和form表单
+	id, err := models.Int(c.Query("id")) //区分query表单和form表单
 	//fmt.Println(id)
 	if err != nil {
 		con.Error(c, "传入数据失败", "/admin/access")

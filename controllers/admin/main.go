@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"ginshop/models"
 	"github.com/gin-contrib/sessions"
+	"gorm.io/gorm"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -26,7 +27,9 @@ func (con MainController) Index(c *gin.Context) {
 		//step2:获取用户所有的权限
 		accessList := []models.Access{}
 		//关联外表
-		models.DB.Where("module_id=?", 0).Preload("AccessItem").Find(&accessList) //获取顶级模块
+		models.DB.Where("module_id=?", 0).Preload("AccessItem", func(db *gorm.DB) *gorm.DB {
+			return db.Order("access.sort DESC")
+		}).Order("sort DESC").Find(&accessList) //获取顶级模块
 		//查询当前角色对应的权限,并且存为一个id,判断当前id是否在map中,如果在的话就加一个checked属性
 		roleAccess := []models.RoleAccess{}
 		models.DB.Where("role_id=?", userinfoStruct[0].RoleId).Find(&roleAccess) //获取当前id对应的AccessId
@@ -61,4 +64,68 @@ func (con MainController) Index(c *gin.Context) {
 
 func (con MainController) Welcome(c *gin.Context) {
 	c.HTML(http.StatusOK, "admin/main/welcome.html", gin.H{})
+}
+
+//公告修改状态方法
+
+func (con MainController) ChangeStatus(c *gin.Context) {
+	id, err := models.Int(c.Query("id"))
+	if err != nil {
+		c.JSON(http.StatusOK, gin.H{
+			"success": false,
+			"message": "传入的参数错误",
+		})
+		return
+	}
+
+	table := c.Query("table")
+	field := c.Query("field")
+
+	// status = ABS(0-1)   1
+
+	// status = ABS(1-1)  0
+
+	err1 := models.DB.Exec("update "+table+" set "+field+"=ABS("+field+"-1) where id=?", id).Error
+	if err1 != nil {
+		c.JSON(http.StatusOK, gin.H{
+			"success": false,
+			"message": "修改失败 请重试",
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"success": true,
+		"message": "修改成功",
+	})
+}
+
+//公共修改状态的方法
+func (con MainController) ChangeNum(c *gin.Context) {
+	id, err := models.Int(c.Query("id"))
+	if err != nil {
+		c.JSON(http.StatusOK, gin.H{
+			"success": false,
+			"message": "传入的参数错误",
+		})
+		return
+	}
+
+	table := c.Query("table")
+	field := c.Query("field")
+	num := c.Query("num")
+
+	err1 := models.DB.Exec("update "+table+" set "+field+"="+num+" where id=?", id).Error
+	if err1 != nil {
+		c.JSON(http.StatusOK, gin.H{
+			"success": false,
+			"message": "修改数据失败",
+		})
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"success": true,
+			"message": "修改成功",
+		})
+	}
+
 }

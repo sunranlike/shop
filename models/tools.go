@@ -3,8 +3,12 @@ package models
 import (
 	"crypto/md5"
 	"crypto/sha256"
+	"errors"
 	"fmt"
+	"github.com/gin-gonic/gin"
 	"io"
+	"os"
+	"path"
 	"strconv"
 	"time"
 )
@@ -52,12 +56,54 @@ func Sha256(str string) string {
 	io.WriteString(h, str)
 	return fmt.Sprintf("%x", h.Sum(nil))
 }
-func ToInt(str string) (n int, err error) {
+func Int(str string) (n int, err error) {
 	n, err = strconv.Atoi(str)
 	return
 }
-func ToString(n int) string {
+func String(n int) string {
 
 	str := strconv.Itoa(n)
 	return str
+}
+
+//上传图片
+func UploadImg(c *gin.Context, picName string) (string, error) {
+	// 1、获取上传的文件,也是从form表单中获取的,
+	file, err := c.FormFile(picName)
+	if err != nil {
+		return "", err
+	}
+	//限制后缀
+	// 2、获取后缀名 判断类型是否正确  .jpg .png .gif .jpeg
+	extName := path.Ext(file.Filename)
+	allowExtMap := map[string]bool{
+		".jpg":  true,
+		".png":  true,
+		".gif":  true,
+		".jpeg": true,
+	}
+
+	if _, ok := allowExtMap[extName]; !ok { //通过map获取是否合法
+		return "", errors.New("文件后缀名不合法")
+	}
+
+	// 3、创建图片保存目录  static/upload/20210624
+
+	day := GetDay()
+	dir := "./static/upload/" + day
+
+	err1 := os.MkdirAll(dir, 0666)
+	if err1 != nil {
+		fmt.Println(err1)
+		return "", err1
+	}
+
+	// 4、生成文件名称和文件保存的目录   111111111111.jpeg
+	fileName := strconv.FormatInt(GetUnix(), 10) + extName
+
+	// 5、执行上传
+	dst := path.Join(dir, fileName)
+	c.SaveUploadedFile(file, dst)
+	return dst, nil
+
 }
