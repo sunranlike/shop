@@ -6,6 +6,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"html/template"
 	"io"
 	"os"
 	"path"
@@ -109,4 +110,15 @@ func UploadImg(c *gin.Context, picName string) (string, error) {
 	c.SaveUploadedFile(file, dst) //返回的dst是一个文件的目录
 	return dst, nil
 
+}
+
+//表示把string转换成Float64
+func Float(str string) (float64, error) {
+	n, err := strconv.ParseFloat(str, 64)
+	return n, err
+}
+
+//把字符串解析成html，这里在前端静态页面有用到，用来吧字符串给转换成html格式的字段，直接插入到html中
+func Str2Html(str string) template.HTML {
+	return template.HTML(str)
 }
