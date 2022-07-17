@@ -19,7 +19,7 @@
                                 {{$cateId := .goodsTypeAttribute.CateId}}
                                 <select name="cate_id" id="cate_id">
                                     {{range $key,$value := .goodsTypeList}}
-                                        <option {{if eq $cateId $value.Id}} selected {{end}}  value="{{$value.Id}}">{{$value.Title}}</option>  
+                                        <option {{if eq $cateId $value.Id}} selected {{end}}  value="{{$value.Id}}">{{$value.Title}}</option>
                                     {{end}}
                                 </select>
                             </li>
@@ -59,7 +59,7 @@
 </div>
 <script>
 
-$(function(){    
+$(function(){
         $("input[name='attr_type").change(function(){
             // alert($(this).val())
             if($(this).val()==3){

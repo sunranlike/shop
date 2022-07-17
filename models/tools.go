@@ -33,6 +33,9 @@ func DateToUnix(str string) int64 {
 func GetUnix() int64 {
 	return time.Now().Unix()
 }
+func GetUnixN() int64 {
+	return time.Now().UnixNano()
+}
 
 //获取当前的日期
 func GetDate() string {
@@ -99,11 +102,11 @@ func UploadImg(c *gin.Context, picName string) (string, error) {
 	}
 
 	// 4、生成文件名称和文件保存的目录   111111111111.jpeg
-	fileName := strconv.FormatInt(GetUnix(), 10) + extName
+	fileName := strconv.FormatInt(GetUnixN(), 10) + extName
 
 	// 5、执行上传
 	dst := path.Join(dir, fileName)
-	c.SaveUploadedFile(file, dst)
+	c.SaveUploadedFile(file, dst) //返回的dst是一个文件的目录
 	return dst, nil
 
 }

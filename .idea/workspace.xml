@@ -1,16 +1,306 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="059d4f06-dfa8-40c4-ad98-d094fc74d68e" name="Changes" comment="feat:">
+      <change afterPath="$PROJECT_DIR$/controllers/admin/goods.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/goods.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/goodsAttr.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/goodsColor.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/goodsImage.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/admin/js/zh_cn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/diyUpload/css/diyUpload.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/diyUpload/css/webuploader.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/diyUpload/images/bgblack.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/diyUpload/images/check_alt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/diyUpload/images/filebg/avi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/diyUpload/images/filebg/cdr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/diyUpload/images/filebg/csv.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/diyUpload/images/filebg/doc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/diyUpload/images/filebg/jpg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/diyUpload/images/filebg/mp3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/diyUpload/images/filebg/pdf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/diyUpload/images/filebg/png.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/diyUpload/images/filebg/ppt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/diyUpload/images/filebg/rar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/diyUpload/images/filebg/txt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/diyUpload/images/filebg/xls.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/diyUpload/images/filebg/zip.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/diyUpload/images/filebg/复件 txt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/diyUpload/images/x_alt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/diyUpload/js/diyUpload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/diyUpload/js/webuploader.html5only.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/froala_editor.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/froala_editor.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/froala_editor.pkgd.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/froala_editor.pkgd.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/froala_style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/froala_style.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins.pkgd.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins.pkgd.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/char_counter.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/char_counter.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/code_view.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/code_view.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/colors.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/colors.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/draggable.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/draggable.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/emoticons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/emoticons.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/file.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/file.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/files_manager.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/files_manager.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/fullscreen.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/fullscreen.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/help.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/help.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/image.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/image.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/image_manager.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/image_manager.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/line_breaker.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/line_breaker.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/markdown.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/markdown.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/quick_insert.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/quick_insert.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/special_characters.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/special_characters.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/table.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/table.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/trim_video.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/trim_video.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/video.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/plugins/video.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/themes/dark.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/themes/dark.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/themes/gray.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/themes/gray.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/themes/royal.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/themes/royal.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/third_party/embedly.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/third_party/embedly.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/third_party/font_awesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/third_party/font_awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/third_party/image_tui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/third_party/image_tui.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/third_party/spell_checker.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/css/third_party/spell_checker.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/froala_editor.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/froala_editor.pkgd.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/ar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/bs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/cs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/da.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/de.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/el.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/en_ca.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/en_gb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/es.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/et.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/fa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/fi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/fr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/he.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/hr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/hu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/id.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/it.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/ja.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/ko.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/ku.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/me.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/nb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/nl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/pl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/pt_br.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/pt_pt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/ro.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/ru.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/sk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/sl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/sr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/sv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/th.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/tr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/uk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/vi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/zh_cn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/languages/zh_tw.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins.pkgd.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/align.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/char_counter.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/code_beautifier.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/code_view.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/colors.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/cryptojs.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/draggable.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/edit_in_popup.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/emoticons.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/entities.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/file.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/files_manager.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/font_family.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/font_size.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/forms.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/fullscreen.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/help.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/image.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/image_manager.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/inline_class.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/inline_style.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/line_breaker.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/line_height.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/link.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/lists.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/markdown.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/paragraph_format.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/paragraph_style.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/print.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/quick_insert.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/quote.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/save.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/special_characters.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/table.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/track_changes.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/trim_video.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/url.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/video.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/plugins/word_paste.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/third_party/embedly.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/third_party/font_awesome.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/third_party/image_tui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/third_party/showdown.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/third_party/spell_checker.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/wysiwyg-editor/js/zh_cn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/goods/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/goods/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tmp/runner-build-errors.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ginshop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ginshop.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/itying/defaultController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/itying/defaultController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/goodsTypeAttribute.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/goodsTypeAttribute.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/tools.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/tools.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/adminRouters.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/adminRouters.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/css/basic.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/css/basic.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/js/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/js/base.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/upload/20210825/1629884994.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/upload/20210825/1629885019.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/goodsTypeAttribute/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/goodsTypeAttribute/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/public/page_header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/public/page_header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/runner-build.exe" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/runner-build.exe" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="FoldableProjectSettings">
+    <option name="HIDE_IGNORED_FILES" value="false" />
+    <option name="FOLDING_ENABLED" value="false" />
+  </component>
+  <component name="GOROOT" url="file://$USER_HOME$/sdk/go1.18" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Bw4t1ufnE2nTwuJV20Ras6kXZw" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;ssh.settings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultGoTemplateProperty": "Go File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "C:/Users/Administrator",
+    "settings.editor.selected.configurable": "goland.project.structure",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ginshop\models" />
+      <recent name="D:\ginshop\static\admin\js" />
+      <recent name="D:\ginshop\controllers\admin" />
+      <recent name="D:\ginshop\templates\admin\goods" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="feat:" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:" />
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
 </project>

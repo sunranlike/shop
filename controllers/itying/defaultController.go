@@ -25,6 +25,7 @@ func (con DefaultController) Index(c *gin.Context) {
 	})
 }
 func (con DefaultController) News(c *gin.Context) {
+
 	//获取sessions
 	session := sessions.Default(c)
 	username := session.Get("username")
